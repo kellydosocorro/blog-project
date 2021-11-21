@@ -2,12 +2,12 @@
 
 A simple project to learning about backend with Django and improve frontend VueJs abilities.
 
-##Download the project
+## Download the project
 ```
 git clone https://github.com/kellydosocorro/blog-project.git
 ```
 
-##Django
+## Django
 
 ### Create an virtualenv
 ```
