@@ -7,7 +7,7 @@ A simple project to learning about backend with Django and improve frontend VueJ
 git clone https://github.com/kellydosocorro/blog-project.git
 ```
 
-## Django
+## Flask (Backend)
 
 ### Create an virtualenv
 ```
@@ -25,11 +25,13 @@ pip install -r requirements.txt
 ```
 
 ### Execute
+Enter the /api directory and execute
+
 ```
-python manage.py runserver
+flask run --reload
 ```
 
-## Frontend VueJs
+## VueJs (Frontend)
 
 ### Project setup
 ```
