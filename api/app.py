@@ -1,22 +1,23 @@
 from json.tool import main
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, request
+from json import dumps
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 @app.route("/")
 def index():
   return "Index"
 
-@app.route("/hello/") # Se colocar com barra no final, ele aceita mesmo que no navegador coloque sem a barra
-@app.route("/hello/<nome>") #Se não colocar nada além do parâmetro, ele será uma string
-def teste(nome = ""):
-  return "<h1>Hello, {}</h1>".format(nome)
+""" @app.route("/hello/") """ # Se colocar com barra no final, ele aceita mesmo que no navegador coloque sem a barra
+""" @app.route("/hello/<nome>") """ #Se não colocar nada além do parâmetro, ele será uma string
+""" def teste(nome = ""):
+  return "<h1>Hello, {}</h1>".format(nome) """
 
-@app.route("/teste/<int:num>") # Também é possível definir se o parâmetro é um número inteiro ou mesmo float
-def teste2(num):
-  return "<p>Este é o número {}</p>".format(num)
+""" @app.route("/teste/<int:num>") """ # Também é possível definir se o parâmetro é um número inteiro ou mesmo float
+""" def teste2(num):
+  return "<p>Este é o número {}</p>".format(num) """
 
-@app.route("/admin/<user>")
+""" @app.route("/admin/<user>")
 def admin(user):
   return "<h1>Hello {}!</h1>".format(user)
 
@@ -33,7 +34,14 @@ def user(name):
 
 @app.route("/google/")
 def google():
-  return redirect('http://www.google.com.br')
+  return redirect('http://www.google.com.br') """
+
+@app.route("/add/", methods=["POST", "GET"])
+def add():
+  if request.method == 'POST':
+    """ return "Usuário %s cadastrado" % request.form["username"] """
+    return dumps(request.form)
+  return "GET"
 
 if __name__ == '__main__':
   app.run()
